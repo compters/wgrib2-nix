@@ -1,0 +1,13 @@
+diff --git a/makefile b/makefile
+index 261e8b7..04ea684 100644
+--- a/makefile
++++ b/makefile
+@@ -830,7 +830,7 @@ all:	${netcdf4src} ${hdf5src} ${prog} aux_progs/gmerge aux_progs/smallest_grib2
+ 
+ 
+ ${prog}:        $w/*.c $w/*.h ${jlib} ${aeclib} ${netcdf3lib} ${pnglib} ${hdf5lib} ${g2clib} ${netcdf4lib} ${iplib} ${spectrallib} ${gctpclib} ${proj4lib} ${ojlib}
+-	cd "$w" && export LDFLAGS="${wLDFLAGS}" && export CPPFLAGS="${wCPPFLAGS}" && ${MAKE}
++	cd "$w" && export LDFLAGS="${wLDFLAGS} -lquadmath" && export CPPFLAGS="${wCPPFLAGS}" && ${MAKE}
+ 
+ fast:        $w/*.c $w/*.h ${jlib} ${aeclib} ${netcdf3lib} ${pnglib} ${hdf5lib} ${g2clib} ${netcdf4lib} ${iplib} ${spectrallib} ${gctpclib} ${proj4lib} ${ojlib}
+ 	cd "$w" && export LDFLAGS="${wLDFLAGS}" && export CPPFLAGS="${wCPPFLAGS}" && ${MAKE} fast
